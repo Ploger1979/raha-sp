@@ -1,16 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-
 import { Star } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useKeenSlider } from "keen-slider/react";
+import { useKeenSlider } from 'keen-slider/react';
 
-
-// ✅ تعريف شكل كل تقييم
 interface Review {
     _id?: string;
     rating: number;
@@ -20,18 +16,16 @@ interface Review {
 }
 
 export default function ReviewsPage() {
-    // ✅ بيانات النموذج
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [name, setName] = useState('');
     const [reviews, setReviews] = useState<Review[]>([]);
 
-    // ✅ تحميل التقييمات من API
     const fetchReviews = async () => {
         try {
             const res = await fetch('/api/reviews');
-            let data = await res.json();
-            data = data.sort(() => Math.random() - 0.5); // ✅ ترتيب عشوائي
+            let data: Review[] = await res.json();
+            data = data.sort(() => Math.random() - 0.5);
             setReviews(data);
         } catch (error) {
             console.error('❌ Error fetching reviews:', error);
@@ -42,7 +36,6 @@ export default function ReviewsPage() {
         fetchReviews();
     }, []);
 
-    // ✅ إرسال تقييم جديد
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -67,8 +60,6 @@ export default function ReviewsPage() {
         }
     };
 
-    // ✅ إعداد السلايدر
-  
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         loop: true,
         rtl: true,
@@ -78,47 +69,29 @@ export default function ReviewsPage() {
         },
     });
 
-    // ✅ تشغيل السلايدر تلقائيًا كل 10 ثواني، فقط لو كان جاهز
-    
+    // ✅ Autoplay alle 10s, mit sauberem Cleanup und prefer-const fix
     useEffect(() => {
-        // ✅ دالة لتحريك السلايدر
-        const autoplay = () => {
-            const slider = instanceRef.current;
+        let autoplayTimer: number | undefined;
 
-            // ✅ لو السلايدر جاهز بالكامل (track.details موجود)
+        const tryStart = () => {
+            const slider = instanceRef.current;
             if (slider && slider.track && slider.track.details) {
-                console.log("🔁 السلايدر بيتحرك تلقائيًا...");
-                slider.next(); // ⏩ تحريك السلايدر للعنصر التالي
-            } else {
-                console.log("⏳ السلايدر لسه مش جاهز بالكامل");
+                if (!autoplayTimer) {
+                    autoplayTimer = window.setInterval(() => {
+                        const s = instanceRef.current;
+                        if (s && s.track && s.track.details) s.next();
+                    }, 10000);
+                }
             }
         };
 
-        // ✅ نبدأ نتحقق كل نصف ثانية لحد ما السلايدر يكون جاهز
-        const waitUntilReady = setInterval(() => {
-            const slider = instanceRef.current;
+        const readyTimer = window.setInterval(tryStart, 500); // <-- const statt let
 
-            // ✅ لما يكون جاهز نبدأ التحريك التلقائي
-            if (slider && slider.track && slider.track.details) {
-                console.log("✅ السلايدر بقى جاهز بالكامل!");
-
-                clearInterval(waitUntilReady); // 🛑 نوقف التحقق
-
-                // ✅ نبدأ التحريك التلقائي كل 10 ثواني
-                const autoplayInterval = setInterval(autoplay, 10000);
-
-                // ✅ لما نغادر الصفحة نوقف التحريك
-                return () => clearInterval(autoplayInterval);
-            } else {
-                console.log("⏳ السلايدر لسه بيجهز...");
-            }
-        }, 500); // ⏱️ نتحقق كل 500ms
-
-        // ✅ تنظيف عند الخروج
         return () => {
-            clearInterval(waitUntilReady);
+            window.clearInterval(readyTimer);
+            if (autoplayTimer) window.clearInterval(autoplayTimer);
         };
-    }, []); 
+    }, [instanceRef]);
 
     return (
         <>
@@ -133,9 +106,7 @@ export default function ReviewsPage() {
                     <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 underline">شاركنا رأيك</h1>
                     <br />
 
-                    {/* ✅ نموذج التقييم */}
                     <form onSubmit={handleSubmit} className="space-y-6 bg-white/10 p-6 rounded-lg border border-white/20">
-                        {/* ✅ اختيار عدد النجوم */}
                         <div className="flex justify-center gap-2">
                             {[1, 2, 3, 4, 5].map((num) => (
                                 <button
@@ -143,6 +114,7 @@ export default function ReviewsPage() {
                                     key={num}
                                     onClick={() => setRating(num)}
                                     className={rating >= num ? 'text-yellow-400' : 'text-white/50'}
+                                    aria-label={`bewerte ${num} Sterne`}
                                 >
                                     <Star className="w-10 h-10" fill={rating >= num ? 'currentColor' : 'none'} />
                                 </button>
@@ -165,31 +137,21 @@ export default function ReviewsPage() {
                             onChange={(e) => setComment(e.target.value)}
                         />
 
-                        <button
-                            type="submit"
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full w-full"
-                        >
+                        <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full w-full">
                             إرسال التقييم
                         </button>
                     </form>
-                    
+
                     <br />
                     <br />
 
-                    {/* ✅ قسم التقييمات */}
                     <div className="mt-10 bg-white/10 p-6 rounded-lg border border-white/20">
                         <h2 className="text-2xl font-bold text-yellow-300 text-center mb-6">آراء الزبائن</h2>
 
-                        {/* ✅ عرض رسالة لو مفيش تقييمات */}
-                        {reviews.length === 0 && (
-                            <p className="text-white/70 text-center">لا توجد تقييمات بعد.</p>
-                        )}
-
-                       
+                        {reviews.length === 0 && <p className="text-white/70 text-center">لا توجد تقييمات بعد.</p>}
 
                         <br />
 
-                        {/* ✅ سلايدر التقييمات */}
                         <div ref={sliderRef} className="keen-slider overflow-hidden">
                             {reviews.map((r, i) => (
                                 <div
@@ -211,13 +173,9 @@ export default function ReviewsPage() {
                         </div>
                     </div>
 
-                    {/* ✅ زر الرجوع إلى الرئيسية */}
                     <br />
                     <div className="text-center mt-6">
-                        <Link
-                            href="/"
-                            className="inline-block bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-6 rounded-full transition"
-                        >
+                        <Link href="/" className="inline-block bg-white/20 hover:bg-white/30 text-white font-bold py-2 px-6 rounded-full transition">
                             ← الرجوع إلى الرئيسية
                         </Link>
                     </div>

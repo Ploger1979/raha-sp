@@ -1,12 +1,8 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     "target": "es2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,26 +14,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".", // تسيبه مؤقتًا شغال
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }, // علشان alias '@/'
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] },
+
+    "plugins": [{ "name": "next" }]
   },
   "include": [
-    "**/*.d.ts",
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next-env.d.ts",
+    "**/*.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

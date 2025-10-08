@@ -1,5 +1,6 @@
 {
   "Codegeex.RepoIndex": true,
   "Codegeex.GenerationPreference": "automatic",
-  "Codegeex.CommitMessage.LanguagePreference": "English"
+  "Codegeex.CommitMessage.LanguagePreference": "English",
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
