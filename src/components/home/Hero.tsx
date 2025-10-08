@@ -9,12 +9,12 @@ export default function Hero() {
 
     // ✅ وظيفة الاتصال عند الضغط على زر "اتصل الآن"
     const handleCallNow = () => {
-        window.open('tel:+218949830642', '_self');
+        window.open('tel:+218918803088', '_self');
     };
 
     // ✅ وظيفة فتح WhatsApp عند الضغط على زر "واتساب"
     const handleWhatsApp = () => {
-        window.open('https://wa.me/218918803088', '_blank');
+        window.open('https://wa.me/218949830642', '_blank');
     };
 
     return (
@@ -33,7 +33,7 @@ export default function Hero() {
                         transition={{ duration: 0.8 }}
                         className="flex justify-center items-center"
                     >
-                        
+
                         <div className="flex flex-col items-center text-center space-y-6">
                             <br /><br /><br /><br />
                             {/* ✅ العنوان الرئيسي */}

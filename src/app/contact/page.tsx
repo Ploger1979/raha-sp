@@ -13,7 +13,7 @@ export default function ContactPage() {
 
     
     const handleCallNow = (phone:string) => window.open(`tel:${phone}`, '_self');
-    const handleWhatsApp = () => window.open('https://wa.me/218949830643', '_blank');
+    const handleWhatsApp = () => window.open('https://wa.me/218949830642', '_blank');
 
     const contactInfo = [
         {
