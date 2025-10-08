@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export default function VideosPage() {
-    const localVideos = Array.from({ length: 18 }, (_, i) => `/videos/${i + 1}.mp4`);
+    const localVideos = Array.from({ length: 20 }, (_, i) => `/videos/${i + 1}.mp4`);
 
     return (
         <>
@@ -26,7 +26,7 @@ export default function VideosPage() {
                     >
                         معرض الفيديوهات
                     </motion.h1>
-                      <br/>
+                    <br />
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ export default function VideosPage() {
                 </div>
                 <br />
             </section>
-          
+
             {/* ✅ خلفية كاملة بنفس تدرج الهيدر + تـوسيط شبكة الفيديوهات */}
             <main className="bg-gradient-to-tr from-[#3b1f99] via-[#602bb7] to-[#9e4ff1] py-20"><br />
                 <div className="w-full flex justify-center">

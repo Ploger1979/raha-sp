@@ -177,10 +177,10 @@ const BranchesPage = () => {
                                             >
                                                 <div className="relative">
                                                     <Image
-                                                        src={branch.image || "/placeholder.jpg"} // تأكد إن الصورة مش فاضية
+                                                        src={branch.image || "/placeholder.jpg"} //src={branch.image || "/placeholder.jpg"}
                                                         alt={branch.name}
-                                                        width={600} // أو أي عرض مناسب
-                                                        height={250} // أو أي ارتفاع مناسب
+                                                        width={600} 
+                                                        height={250} 
                                                         className="w-full h-48 object-cover"
                                                     />
 

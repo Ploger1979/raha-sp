@@ -77,7 +77,7 @@ const Footer = () => {
 
                         {/* ✅ حقوق النشر */}
                         <div className="text-center text-sm w-full">
-                            <p>© 2024 الراحة لصناعة الإسفنج والمراتب. جميع الحقوق محفوظة</p>
+                            <p>© 2025 الراحة لصناعة الإسفنج والمراتب. جميع الحقوق محفوظة</p>
                             <p className="mt-1">بصناعتنا_نفتخر_وبراحتكم_نعلو</p>
                         </div>
                         <br />
@@ -89,10 +89,11 @@ const Footer = () => {
                         <h3 className="text-xl font-semibold text-center md:text-right text-yellow-500 underline">معلومات التواصل</h3>
                         <br />
                         <div className="space-y-2 text-md text-center md:text-right">
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📞 0949830643</div>
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📞 0918803098</div>
+                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📞 0949830642</div>
+                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📞 0918803088</div>
                             <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2"><MapPin className="w-5 text-red-500" /> بنغازي - قاريونس</div>
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📧 info@raha-mattresses.com</div>
+                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📧 info@raha-sp.com</div>
+                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📧 raha_spong@yahoo.com</div>
                         </div>
 
                         <br/>
