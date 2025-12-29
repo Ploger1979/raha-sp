@@ -1,53 +1,38 @@
-'use client'; // ✅ هذا المكون يعمل فقط على جهة العميل (Client Component)
+"use client";
 
-import { motion } from 'framer-motion'; // ✅ مكتبة الحركات Framer Motion
-import { Button } from '@/components/ui/Button'; // ✅ زر مخصص مُصمم سابقًا داخل المشروع
-import Link from "next/link"; // ✅ التنقل بين صفحات Next.js
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
-// ✅ مكون يعرض قسم تجريبي لكلام العملاء بشكل دعائي محفز
 export default function TestimonialSection() {
+  return (
+    <section className="relative min-h-[50vh] flex items-center justify-center text-center text-white">
+      <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none" />
 
-    return (
-        <section className="relative min-h-[50vh] flex items-center justify-center text-center bg-gradient-to-tr from-[#3b1f99] via-[#602bb7] to-[#9e4ff1] text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="relative z-20 max-w-3xl mx-auto px-4 space-y-8"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold leading-snug">
+          مراتب الراحة ترجعك شباب 😉
+        </h2>
 
-            {/* ✅ طبقة شفافة خفيفة لتحسين التباين مع الحفاظ على التفاعل */}
-            <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none" />
+        <p className="text-2xl md:text-3xl mb-8 leading-relaxed text-white/90">
+          اسأل المجرب... وشوف الفرق بنفسك!
+        </p>
 
-            {/* ✅ محتوى القسم داخل حركة framer-motion */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }} // ✅ يظهر تدريجيًا من الأسفل
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative z-20 max-w-3xl mx-auto text-white px-4 space-y-8"
-            >
-                {/* ✅ العنوان الرئيسي */}
-                <h2 className="text-4xl md:text-5xl font-bold leading-snug">
-                    مراتب الراحة ترجعك شباب 😉
-                </h2>
-
-                {/* ✅ جملة دعائية تشجيعية */}
-                <p className="text-2xl md:text-3xl mb-8 leading-relaxed">
-                    اسأل المجرب... وشوف الفرق بنفسك!
-                </p>
-
-                <br />
-
-                {/* ✅ جملة ترويجية إضافية */}
-                <p className="text-xl md:text-2xl leading-relaxed">
-                    آراء عملائنا هي سر نجاحنا
-                </p>
-
-                <br />
-
-                {/* ✅ زر للذهاب إلى صفحة آراء العملاء */}
-                <Link href="/reviews">
-                    <Button
-                        className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold py-3 px-6 rounded-full text-lg w-fit mx-auto"
-                    >
-                        شوف آراء عملائنا
-                    </Button>
-                </Link>
-            </motion.div>
-        </section>
-    );
+        <p className="text-xl md:text-2xl leading-relaxed text-white/85">
+          آراء عملائنا هي سر نجاحنا
+        </p>
+        <br />
+        <Link href="/reviews">
+          <Button className="btn-primary font-bold py-3 px-6 rounded-full text-lg shadow-md">
+            شوف آراء عملائنا
+          </Button>
+        </Link>
+      </motion.div>
+    </section>
+  );
 }

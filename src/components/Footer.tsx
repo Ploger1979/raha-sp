@@ -1,123 +1,176 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { FaWhatsapp } from "react-icons/fa";
-import { MapPin, Facebook, Instagram } from 'lucide-react';
+import React from "react";
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { MapPin } from "lucide-react";
 import Image from "next/image";
-import Link from 'next/link'; 
+import Link from "next/link";
 
-// ✅ مكون التذييل (Footer)
 const Footer = () => {
-    return (
-        <section className="relative bg-gradient-to-tr from-[#3b1f99] via-[#602bb7] to-[#9e4ff1] text-white flex items-center justify-center">
-            {/* ✅ طبقة شفافة فوق الخلفية البنفسجية */}
-            <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none" />
+  // ✅ نفس ستايل “Glass” للأيقونات
+  const socialBase =
+    "bg-white/10 border border-white/15 w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/15 transition";
 
-            {/* ✅ الحاوية الرئيسية للمحتوى */}
-            <div className="w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10 py-12">
+  return (
+    <footer dir="rtl" className="relative animated-gradient text-white">
+      {/* ✅ طبقة شفافة */}
+      <div className="absolute inset-0 bg-black/35 z-0 pointer-events-none" />
 
-                {/* ✅ توزيع المحتوى في 3 أعمدة (روابط - شعار - تواصل) */}
-                <div className="flex flex-col md:flex-row justify-between items-start text-center md:text-right gap-8">
+      {/* ✅ Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+        {/* ✅ 1) العنوان + العنوان الفرعي + العلامة التجارية */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 items-start text-center md:text-right">
+          {/* ✅ 1) روابط سريعة (موبايل: عمود 1) */}
+          <div className="order-1 w-full flex flex-col items-center md:items-end">
+            <br />
+            <h3 className="text-xl font-semibold text-[color:var(--accent-500)] underline mb-4">
+              روابط سريعة
+            </h3>
 
-                    {/* ✅ العمود الأول – روابط سريعة */}
-                    <div className="w-full md:basis-1/3 flex flex-col items-center md:items-end space-y-3 text-center">
+            <ul className="space-y-2 text-md">
+              <li>
+                <Link
+                  href="/products"
+                  className="hover:text-[color:var(--accent-500)] transition block"
+                >
+                  المنتجات
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[color:var(--accent-500)] transition block"
+                >
+                  من نحن
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/videos"
+                  className="hover:text-[color:var(--accent-500)] transition block"
+                >
+                  الفيديوهات
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/branches"
+                  className="hover:text-[color:var(--accent-500)] transition block"
+                >
+                  الفروع
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-[color:var(--accent-500)] transition block"
+                >
+                  تواصل معنا
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-                        <br />
-                        <h3 className="text-xl font-semibold flex item-center justify-center text-yellow-500 underline">روابط سريعة</h3>
-                        <br />
-                        <div className=" flex items-center justify-center text-right">
-                            <ul className="space-y-2 text-md text-right">
-                                <li>
-                                    <Link href="/products" className="hover:text-yellow-500 cursor-pointer block">
-                                        المنتجات
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/about" className="hover:text-yellow-500 cursor-pointer block">
-                                        من نحن
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/branches" className="hover:text-yellow-500 cursor-pointer block">
-                                        الفروع
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/contact" className="hover:text-yellow-500 cursor-pointer block">
-                                        تواصل معنا
-                                    </Link>
-                                </li>
-                            </ul>
+          {/* ✅ 2) معلومات التواصل (موبايل: عمود 2) */}
+          <div className="order-2 w-full flex flex-col items-center md:items-start">
+            <br />
+            <h3 className="text-xl font-semibold text-[color:var(--accent-500)] underline mb-4">
+              معلومات التواصل
+            </h3>
 
-                        </div>
-                    </div>
+            <div className="space-y-2 text-md text-center md:text-right">
+              <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
+              00218924235513📞
+              </div>
+              <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
+              00218918555111📞
+              </div>
 
-                    {/* ✅ العمود الثاني – شعار الشركة + وصف + حقوق النشر */}
-                    <div className="w-full md:basis-1/3 flex flex-col items-center space-y-4">
-                        
-                        {/* ✅ الشعار */}
-                        <Image
-                            src="/assets/logo-Ohne-bg11.png"
-                            alt="شعار الراحة"
-                            width={192}
-                            height={192}
-                            style={{ height: 'auto' }} // ✅ يحافظ على الأبعاد الأصلية
-                        />
+              <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
+                <MapPin className="w-5 text-red-400" />
+                بنغازي - قاريونس
+              </div>
 
-                        {/* ✅ وصف الشركة */}
-                        <p className="text-sm leading-relaxed text-center max-w-xs ">
-                            فى شركتنا نؤمن ان النوم المريح أساس الحياه الصحيه<br />
-                            لذلك نحن نقدم افضل المراتب والإسفنج بجوده عالميه منذ عام 1999
-                        </p>
+              <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
+                📧 info@raha-sp.com
+              </div>
 
-                        <br />
-
-                        {/* ✅ خط فاصل */}
-                        <hr className="w-full border-t border-white/50 my-6" />
-
-                        {/* ✅ حقوق النشر */}
-                        <div className="text-center text-sm w-full">
-                            <p>© 2025 الراحة لصناعة الإسفنج والمراتب. جميع الحقوق محفوظة</p>
-                            <p className="mt-1">بصناعتنا_نفتخر_وبراحتكم_نعلو</p>
-                        </div>
-                        <br />
-                    </div>
-
-                    {/* ✅ العمود الثالث – معلومات التواصل وأيقونات السوشيال */}
-                    <div className="w-full md:basis-1/3 flex flex-col items-center md:items-start space-y-3">
-                        <br />
-                        <h3 className="text-xl font-semibold text-center md:text-right text-yellow-500 underline">معلومات التواصل</h3>
-                        <br />
-                        <div className="space-y-2 text-md text-center md:text-right">
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📞 0949830642</div>
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📞 0918803088</div>
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2"><MapPin className="w-5 text-red-500" /> بنغازي - قاريونس</div>
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📧 info@raha-sp.com</div>
-                            <div className="flex justify-center md:justify-start items-center  hover:text-yellow-500 gap-2">📧 raha_spong@yahoo.com</div>
-                        </div>
-
-                        <br/>
-
-                        {/* ✅ روابط السوشيال ميديا */}
-                        <div className="flex justify-center md:justify-start gap-3 pt-2">
-                            <a href="#" className="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600">
-                                <FaWhatsapp className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700">
-                                <Facebook className="w-5" />
-                            </a>
-                            <a href="#" className="bg-pink-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-700">
-                                <Instagram className="w-5" />
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
+              <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
+                📧 raha_spong@yahoo.com
+              </div>
             </div>
-        </section>
+            <br />
+            {/* ✅ Social */}
+            <div className="flex justify-center md:justify-start gap-3 pt-4">
+              <a
+                href="https://wa.me/218949830642"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={socialBase}
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp className="w-5 h-5 text-green-600" />
+              </a>
 
-    );
+              <a
+                href="https://www.facebook.com/rahasponge"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={socialBase}
+                aria-label="Facebook"
+              >
+                <FaFacebookF className="w-5 h-5 text-blue-600" />
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={socialBase}
+                aria-label="Instagram"
+              >
+                <FaInstagram className="w-5 h-5 text-pink-600" />
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={socialBase}
+                aria-label="TikTok"
+              >
+                <FaTiktok className="w-5 h-5 text-black" />
+              </a>
+            </div>
+          </div>
+
+          {/* ✅ 3) اللوجو + النصوص (موبايل: تحت العمودين) */}
+          <div className="order-3 md:order-2 col-span-2 md:col-span-1 w-full flex flex-col items-center space-y-4 pt-8 md:pt-0">
+            <Image
+              src="/assets/logo-Ohne-bg-Gold.png"
+              alt="شعار الراحة"
+              width={192}
+              height={192}
+              style={{ height: "auto" }}
+              priority
+            />
+
+            <p className="text-sm leading-relaxed text-center max-w-xs text-white/85">
+              فى شركتنا نؤمن ان النوم المريح أساس الحياه الصحيه لذلك نحن نقدم
+              افضل المراتب والإسفنج بجوده عالميه منذ عام 1999
+            </p>
+
+            <hr className="w-full border-t border-white/20 my-4" />
+
+            <div className="text-center text-sm w-full text-white/80">
+              <p>© 2025 الراحة لصناعة الإسفنج والمراتب. جميع الحقوق محفوظة</p>
+              <p className="mt-1">بصناعتنا_نفتخر_وبراحتكم_نعلو</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
