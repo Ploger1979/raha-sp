@@ -40,7 +40,6 @@ export default function Navbar() {
     ? "text-yellow-600 font-bold"
     : "text-yellow-400 font-bold";
 
- 
   const container = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
 
   // ✅ شكل أيقونة السوشيال
@@ -125,8 +124,6 @@ export default function Navbar() {
               <Link href="/" scroll className="shrink-0 flex items-center">
                 <Logo scrolled={scrolled} />
               </Link>
-
-            
             </div>
 
             {/* ✅ (الوسط) Links — في النص + مسافة كويسة عشان مايلزقوش في السوشيال */}
@@ -177,31 +174,35 @@ export default function Navbar() {
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="md:hidden bg-white/95 border-t overflow-hidden"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="md:hidden fixed left-0 right-0 top-20 z-50 bg-white/95 border-t shadow-lg"
               >
-                <div className="px-2 pt-2 pb-3 space-y-1">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.path}
-                      href={item.path}
-                      scroll
-                      className={`block px-4 py-2 text-base font-medium rounded-md ${
-                        pathname === item.path
-                          ? "text-yellow-700 bg-yellow-50"
-                          : "text-gray-700 hover:text-yellow-700 hover:bg-gray-100"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
+                {/* ✅ لو القائمة طويلة نخليها Scroll */}
+                <div className="max-h-[calc(100vh-80px)] overflow-y-auto">
+                  <div className="px-3 pt-3 pb-3 space-y-2">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.path}
+                        href={item.path}
+                        scroll
+                        className={`block w-full text-right px-6 py-3 text-base font-medium rounded-md ${
+                          pathname === item.path
+                            ? "text-yellow-700 bg-yellow-50"
+                            : "text-gray-800 hover:text-yellow-700 hover:bg-gray-100"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
 
-                {/* ✅ السوشيال على الموبايل تحت (زي صورتك التانية) */}
-                <div className="border-t py-3">
-                  <SocialIcons variant="mobile" />
+                  {/* ✅ السوشيال تحت */}
+                  <div className="border-t py-3">
+                    <SocialIcons variant="mobile" />
+                  </div>
                 </div>
               </motion.div>
             )}

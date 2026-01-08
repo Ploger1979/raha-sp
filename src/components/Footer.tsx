@@ -15,7 +15,7 @@ const Footer = () => {
     <footer dir="rtl" className="relative animated-gradient text-white">
       {/* ✅ طبقة شفافة */}
       <div className="absolute inset-0 bg-black/35 z-0 pointer-events-none" />
-
+      <br />
       {/* ✅ Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
         {/* ✅ 1) العنوان + العنوان الفرعي + العلامة التجارية */}
@@ -80,10 +80,10 @@ const Footer = () => {
 
             <div className="space-y-2 text-md text-center md:text-right">
               <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
-              00218924235513📞
+                00218924235513📞
               </div>
               <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
-              00218918555111📞
+                00218918555111📞
               </div>
 
               <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
@@ -94,12 +94,8 @@ const Footer = () => {
               <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
                 📧 info@raha-sp.com
               </div>
-
-              <div className="flex justify-center md:justify-start items-center gap-2 hover:text-[color:var(--accent-500)] transition">
-                📧 raha_spong@yahoo.com
-              </div>
             </div>
-            <br />
+            
             {/* ✅ Social */}
             <div className="flex justify-center md:justify-start gap-3 pt-4">
               <a
@@ -147,14 +143,14 @@ const Footer = () => {
           {/* ✅ 3) اللوجو + النصوص (موبايل: تحت العمودين) */}
           <div className="order-3 md:order-2 col-span-2 md:col-span-1 w-full flex flex-col items-center space-y-4 pt-8 md:pt-0">
             <Image
-              src="/assets/logo-Ohne-bg-Gold.png"
+              src="/assets/logo-raha-white.png"
               alt="شعار الراحة"
               width={192}
               height={192}
               style={{ height: "auto" }}
               priority
             />
-
+            <br />
             <p className="text-sm leading-relaxed text-center max-w-xs text-white/85">
               فى شركتنا نؤمن ان النوم المريح أساس الحياه الصحيه لذلك نحن نقدم
               افضل المراتب والإسفنج بجوده عالميه منذ عام 1999
