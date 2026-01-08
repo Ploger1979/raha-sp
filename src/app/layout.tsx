@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     locale: "ar_LY",
     images: [
       {
-        url: "/og-raha.jpg",
+        url: "https://raha-sp.netlify.app/og-raha.jpg",
         width: 1200,
         height: 630,
         alt: "الراحة لصناعة الاسفنج والمراتب",
@@ -38,10 +38,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "الراحة لصناعة الاسفنج والمراتب",
     description: "راحة تستحقها",
-    images: ["/og-raha.jpg"],
+    images: ["https://raha-sp.netlify.app/og-raha.jpg"],
   },
 };
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

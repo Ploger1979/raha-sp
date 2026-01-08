@@ -184,7 +184,7 @@ export default function Navbar() {
                     key={item.path}
                     href={item.path}
                     scroll
-                    className={`block w-full text-right pr-8 pl-4 py-3 text-base font-medium rounded-md ${
+                    className={`block w-full text-right pr-4 pl-6 py-3 text-base font-medium rounded-md ${
                       pathname === item.path
                         ? "text-yellow-700 bg-yellow-50"
                         : "text-gray-800 hover:text-yellow-700 hover:bg-gray-100"
