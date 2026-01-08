@@ -106,6 +106,7 @@ export default function Navbar() {
         scrolled ? "backdrop-blur-md shadow-lg bg-white/80" : "bg-transparent"
       }`}
     >
+      {/* ✅ نخلي الأنيميشن على الهيدر فقط (مهم لعلاج iPhone fixed/transform bug) */}
       <motion.div
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -119,14 +120,14 @@ export default function Navbar() {
               <SocialIcons variant="desktop" />
             </div>
 
-            {/* ✅ (يسار) Logo + Social على الديسكتوب */}
+            {/* ✅ (يسار) Logo */}
             <div className="flex items-center gap-4">
               <Link href="/" scroll className="shrink-0 flex items-center">
                 <Logo scrolled={scrolled} />
               </Link>
             </div>
 
-            {/* ✅ (الوسط) Links — في النص + مسافة كويسة عشان مايلزقوش في السوشيال */}
+            {/* ✅ (الوسط) Links */}
             <div className="hidden md:flex flex-1 items-center justify-center gap-8 font-bold">
               {navItems.map((item) => (
                 <Link
@@ -155,60 +156,53 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={`md:hidden ${
-                  scrolled ? "text-gray-900" : "text-white"
-                }`}
+                className={`md:hidden ${scrolled ? "text-gray-900" : "text-white"}`}
                 onClick={() => setIsOpen((v) => !v)}
                 aria-label="toggle menu"
               >
-                {isOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-8 h-6" />
-                )}
+                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-8 h-6" />}
               </Button>
             </div>
           </div>
-
-          {/* ✅ قائمة الموبايل */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-                className="md:hidden fixed left-0 right-0 top-20 z-50 bg-white/95 border-t shadow-lg"
-              >
-                {/* ✅ لو القائمة طويلة نخليها Scroll */}
-                <div className="max-h-[calc(100vh-80px)] overflow-y-auto">
-                  <div className="px-3 pt-3 pb-3 space-y-2">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.path}
-                        href={item.path}
-                        scroll
-                        className={`block w-full text-right px-6 py-3 text-base font-medium rounded-md ${
-                          pathname === item.path
-                            ? "text-yellow-700 bg-yellow-50"
-                            : "text-gray-800 hover:text-yellow-700 hover:bg-gray-100"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* ✅ السوشيال تحت */}
-                  <div className="border-t py-3">
-                    <SocialIcons variant="mobile" />
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </motion.div>
+
+      {/* ✅ قائمة الموبايل لازم تكون برا motion (عشان ما تتقصّ في iPhone) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute left-0 right-0 top-20 z-[60] bg-white/95 border-t shadow-lg"
+          >
+            <div className="max-h-[calc(100vh-80px)] overflow-y-auto">
+              <div className="px-3 pt-3 pb-3 space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    scroll
+                    className={`block w-full text-right pr-8 pl-4 py-3 text-base font-medium rounded-md ${
+                      pathname === item.path
+                        ? "text-yellow-700 bg-yellow-50"
+                        : "text-gray-800 hover:text-yellow-700 hover:bg-gray-100"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* ✅ السوشيال تحت */}
+              <div className="border-t py-3">
+                <SocialIcons variant="mobile" />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
