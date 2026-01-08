@@ -57,17 +57,9 @@ export const products: Product[] = [
     features: ["تقنية البيلو توب", "راحة إضافية", "مقاومة التآكل"],
     rating: 4,
   },
+
   {
     id: 6,
-    name: "مرتبة أمريكان ستايل",
-    category: "mattresses",
-    image: "/products/Amrican-Style-2.jpg",
-    description: "مرتبة بالطراز الأمريكي الفاخر مع جودة استثنائية",
-    features: ["طراز أمريكي", "جودة فاخرة", "تصميم كلاسيكي"],
-    rating: 5,
-  },
-  {
-    id: 7,
     name: "مرتبه بلاتينيوم 10 نجوم",
     category: "mattresses",
     image: "/products/New-Bilder/Platinum-10.webp",
@@ -75,34 +67,10 @@ export const products: Product[] = [
     features: ["جودة بلاتينيوم", "تقنية متقدمة", "راحة استثنائية"],
     rating: 10,
   },
+  
+  
   {
-    id: 8,
-    name: "مرتبة كينج",
-    category: "mattresses",
-    image: "/products/King.jpg",
-    description: " مرتبة كينج تمنحك نوم الملوك بتصميم فاخر وجودة عالية",
-    features: [
-      "مقاس كبير 200x180",
-      "قماش فاخر مضاد للبكتيريا",
-      "دعم كامل للجسم",
-    ],
-    rating: 5,
-  },
-  {
-    id: 9,
-    name: "مرتبة برينس",
-    category: "mattresses",
-    image: "/products/New-Bilder/Prince.webp",
-    description: "مرتبة برينس تجمع بين الأناقة والراحة بلمسة ناعمة ونقشة جذابة",
-    features: [
-      "طبقة خارجية برسومات أنيقة",
-      "راحة متوسطة ومرنة",
-      "مناسبة لجميع الأعمار",
-    ],
-    rating: 4,
-  },
-  {
-    id: 10,
+    id: 7,
     name: "مرتبة جولد",
     category: "mattresses",
     image: "/products/New-Bilder/Gold.webp",
@@ -115,7 +83,7 @@ export const products: Product[] = [
     rating: 5,
   },
   {
-    id: 11,
+    id: 8,
     name: "مرتبه بلاتينيوم 7 نجوم ",
     category: "mattresses",
     image: "/products/New-Bilder/Platinum-7.webp",
@@ -128,7 +96,7 @@ export const products: Product[] = [
     rating: 7,
   },
   {
-    id: 12,
+    id: 9,
     name: "مرتبة ريبو لاكس",
     category: "mattresses",
     image: "/products/New-Bilder/Rebolax.webp",
@@ -141,10 +109,8 @@ export const products: Product[] = [
     ],
     rating: 5,
   },
-
-  // ✅ منتجات الكتالوج اللي كانت ناقصة (Rebolax / Ajwan / 2 Stars)
   {
-    id: 13,
+    id: 10,
     name: "مرتبة الراحة",
     category: "mattresses",
     image: "/products/New-Bilder/Raha.webp",
@@ -158,7 +124,7 @@ export const products: Product[] = [
     rating: 5,
   },
   {
-    id: 14,
+    id: 11,
     name: "مرتبة أجوان",
     category: "mattresses",
     image: "/products/New-Bilder/Ajwan.webp",
@@ -171,7 +137,7 @@ export const products: Product[] = [
     rating: 4,
   },
   {
-    id: 15,
+    id: 12,
     name: "مرتبة 2 Stars",
     category: "mattresses",
     image: "/products/New-Bilder/2-Stars.webp",
@@ -183,5 +149,18 @@ export const products: Product[] = [
       "مناسبة للغرف الإضافية والاستخدام المتوسط",
     ],
     rating: 2,
+  },
+  {
+    id: 13,
+    name: "مرتبة برينس",
+    category: "mattresses",
+    image: "/products/New-Bilder/Prince.webp",
+    description: "مرتبة برينس تجمع بين الأناقة والراحة بلمسة ناعمة ونقشة جذابة",
+    features: [
+      "طبقة خارجية برسومات أنيقة",
+      "راحة متوسطة ومرنة",
+      "مناسبة لجميع الأعمار",
+    ],
+    rating: 4,
   },
 ];

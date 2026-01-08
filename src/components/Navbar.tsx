@@ -40,7 +40,7 @@ export default function Navbar() {
     ? "text-yellow-600 font-bold"
     : "text-yellow-400 font-bold";
 
-  // ✅ Container صحيح (كان عندك <px-6> غلط)
+ 
   const container = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
 
   // ✅ شكل أيقونة السوشيال
