@@ -1,0 +1,14 @@
+# netlify.toml
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # ✅ خلي صفحات الموقع دايمًا تتحدث (HTML)
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/og-raha*.jpg"
+  [headers.values]
+    # ✅ صور OG تتخزن بقوة (ممتاز للـ WhatsApp/Instagram)
+    Cache-Control = "public, max-age=31536000, immutable"
+
