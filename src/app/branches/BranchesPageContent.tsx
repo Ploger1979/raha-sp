@@ -31,14 +31,22 @@ const BranchesPage = () => {
           id: 1,
           name: "فرع قاريونس",
           address: "محلات نادي الأهلي، قاريونس",
-          phone: "0948051999",
+          phone: "0941011302 / 0935551302",
+          image: "/Branche/al-raha-raha.jpg",
+        },
+        // ✅ فرع جديد حسب الـ PDF
+        {
+          id: 8,
+          name: "فرع سوق المصرية",
+          address: "سوق المصرية",
+          phone: "0941011303 / 0935551303",
           image: "/Branche/al-raha-raha.jpg",
         },
         {
           id: 2,
           name: "فرع الهواري",
           address: "طريق النهر - الهواري (قرب مديرية الأمن)",
-          phone: "0921174954 / 0941533315",
+          phone: "0941011301 / 0935551301",
           image: "/Branche/al-raha-raha.jpg",
         },
       ],
@@ -62,7 +70,7 @@ const BranchesPage = () => {
           id: 4,
           name: "فرع البيضاء",
           address: "السوق الفوقي خلف التجيش شارع العيادة رقم 1",
-          phone: "0928888929",
+          phone: "0941011307 / 0935551307",
           image: "/Branche/al-raha-raha.jpg",
         },
       ],
@@ -74,7 +82,7 @@ const BranchesPage = () => {
           id: 5,
           name: "فرع سرت",
           address: "مقابل شارع 5 بالقرب من مفترق شارع دبي",
-          phone: "0917911988 / 0926447091",
+          phone: "0941011305 / 0935551305",
           image: "/Branche/al-raha-raha.jpg",
         },
       ],
@@ -86,7 +94,7 @@ const BranchesPage = () => {
           id: 6,
           name: "فرع طبرق",
           address: "شارع شاهر روحه",
-          phone: "0928043445 / 0921174954",
+          phone: "0941011304 / 0935551304",
           image: "/Branche/al-raha-raha.jpg",
         },
       ],
@@ -132,7 +140,6 @@ const BranchesPage = () => {
               </motion.h1>
 
               <br />
-             
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
