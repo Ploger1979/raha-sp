@@ -1,27 +1,36 @@
 # الراحة | Al-Raha Website
 
-موقع رسمي احترافي لمصنع **الراحة لصناعة الإسفنج والمراتب** في ليبيا.  
-Landing Page + عرض منتجات + خريطة الفروع (Leaflet) + تصميم Responsive.
-
-![Al-Raha Preview](https://raha-sp.netlify.app/og-raha-v2.jpg)
+موقع رسمي احترافي لشركة **الراحة لصناعة الإسفنج والمراتب**.  
+تصميم عربي (RTL) متجاوب + عرض منتجات + خريطة فروع + تحسينات SEO و Social Preview.
 
 ## 🔗 Live Demo
-- https://raha-sp.netlify.app/
+
+https://raha-sp.netlify.app/
+
+## 🖼️ Preview
+
+![Al-Raha Website Preview](https://raha-sp.netlify.app/og-raha-v2.jpg)
 
 ## ✨ Features
-- تصميم عربي (RTL) ومتجاوب لكل الشاشات
-- أقسام احترافية: نبذة / منتجات / خدمات / آراء العملاء / تواصل
-- خريطة الفروع باستخدام Leaflet
-- تحسينات SEO و Social Preview (OG / Twitter)
-- نظام سلة مشتريات (Cart Context)
 
-## 🛠 Tech Stack
+- تصميم متجاوب (Desktop / Tablet / Mobile)
+- واجهة عربية RTL بخط Cairo
+- عرض المنتجات والتصنيفات
+- صفحة الفروع + خريطة تفاعلية (Leaflet)
+- مكونات UX (Navbar / Footer / Scroll to top)
+- SEO + OpenGraph/Twitter preview
+
+## 🧰 Tech Stack
+
 - Next.js
 - TypeScript
 - Tailwind CSS
 - Leaflet
+- Netlify (Deployment)
 
 ## 🚀 Run Locally
+
 ```bash
 npm install
 npm run dev
+```
