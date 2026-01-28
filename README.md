@@ -1,30 +1,27 @@
-# Al-Raha Website (الراحة)
+# الراحة | Al-Raha Website
 
-✅ Responsive landing page for **Al-Raha** (foam & mattresses) with products showcase and branches map.
+موقع رسمي احترافي لمصنع **الراحة لصناعة الإسفنج والمراتب** في ليبيا.  
+Landing Page + عرض منتجات + خريطة الفروع (Leaflet) + تصميم Responsive.
+
+![Al-Raha Preview](https://raha-sp.netlify.app/og-raha-v2.jpg)
 
 ## 🔗 Live Demo
-https://raha-sp.netlify.app/
-
-## 🖼️ Preview
-![Al-Raha Website Preview](./public/og-raha-v2.jpg)
+- https://raha-sp.netlify.app/
 
 ## ✨ Features
-- Responsive UI (Desktop / Tablet / Mobile)
-- Products showcase section
-- Branches map (locations)
-- Modern layout + smooth UX
-- SEO basics + social preview support
+- تصميم عربي (RTL) ومتجاوب لكل الشاشات
+- أقسام احترافية: نبذة / منتجات / خدمات / آراء العملاء / تواصل
+- خريطة الفروع باستخدام Leaflet
+- تحسينات SEO و Social Preview (OG / Twitter)
+- نظام سلة مشتريات (Cart Context)
 
-## 🧰 Tech Stack
+## 🛠 Tech Stack
 - Next.js
 - TypeScript
 - Tailwind CSS
-- Netlify (Deployment)
+- Leaflet
 
 ## 🚀 Run Locally
 ```bash
-# 1) install dependencies
 npm install
-
-# 2) run dev server
 npm run dev
